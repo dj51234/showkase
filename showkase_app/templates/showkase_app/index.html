@@ -1,0 +1,15 @@
+{% load webpack_loader static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Index</title>
+    {% stylesheet_pack 'app' %}
+  </head>
+  <body>
+    <h1>This will be the homepage</h1>
+
+    {% javascript_pack 'app' 'app2' attrs='charset="UTF-8"' %}
+  </body>
+</html>
