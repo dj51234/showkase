@@ -1,13 +1,17 @@
 # Showkase Project
 
-Start python server from root path:
+## Biolerplate Django-Webpack Setup
+
+Repo: https://github.com/AccordBox/python-webpack-boilerplate
+
+### Start python server from root path:
 
 ```
 python manage.py migrate
 python manage.py runserver
 ```
 
-In another terminal cd into the frontend folder and enter the following commands:
+### In another terminal cd into the frontend folder and enter the following commands:
 
 ```
 npm install
