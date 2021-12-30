@@ -32,11 +32,13 @@ Webpack will compile javascript and scss using custom template tags in realtime
 - Base template configurations
 
 - Work on design elements
-  - Colors, images, page flow, UI/UX
-  - Logo
-  - Font family
-  - Font sizes
+  - ~~Colors~~, images, page flow, UI/UX
+  - ~~Logo~~
+  - ~~Font family~~
+  - ~~Font sizes~~
+  - ~~CSS vars, globals, css components(ie. buttons, headings, forms)~~
 - Pages
+  - ~~Nav component~~
   - Home page
     - Welcome
     - What the app does

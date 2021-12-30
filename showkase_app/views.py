@@ -2,5 +2,5 @@ from django.shortcuts import render
 
 # Create your views here.
 
-def render_test(request):
-    return render(request, 'showkase_app/test.html')
+def render_home(request):
+    return render(request, 'showkase_app/index.html')

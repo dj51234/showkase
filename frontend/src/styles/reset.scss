@@ -1,0 +1,14 @@
+:root {
+  font-size: 10px; // Easier REM calcs 64/10 = 6.4rem
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $ff-primary;
+  background-color: $green;
+}
