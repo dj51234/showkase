@@ -3,7 +3,7 @@
 Users will be able to create an account and log in to a user portal that will show that user's profile. Once inside the user portal the user will be able to search for movies and TV shows and what platforms they are available on (Netflix, HBO Max, Crunchyroll, Hulu etc.). User will be able to create lists to and and remove saved shows/movies to their list on their profile page.
 ​
 
-API: https://api.watchmode.com/v1
+API: https://api.watchmode.com/
 
 ## Biolerplate Django-Webpack Setup
 
