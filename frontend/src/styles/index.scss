@@ -2,26 +2,8 @@
 @import "vars.scss";
 @import "components.scss";
 @import "reset.scss";
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2rem 5rem;
-
-  ul {
-    font-size: 1.8rem;
-    display: flex;
-    gap: 10px;
-
-    a {
-      color: $white;
-      opacity: 1;
-      transition: 0.2s ease-in-out;
-
-      &:hover {
-        opacity: 0.8;
-      }
-    }
-  }
-}
+@import "partials/_nav.scss";
+@import "partials/_dashboard-nav.scss";
+@import "partials/_hero.scss";
+@import "partials/_dashboard-search.scss";
+@import "partials/_dashboard.scss";

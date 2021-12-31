@@ -1,0 +1,53 @@
+body {
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  background-image: url("../../vendors/images/stream-bg.jpg");
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: bottom center;
+  opacity: 0.035;
+  z-index: -1;
+}
+
+.hero-container {
+  color: $white;
+  max-width: 110rem;
+  margin: 2.5rem;
+
+  .btn {
+    margin-right: 2rem;
+  }
+
+  h1 {
+    padding: 3rem 0;
+  }
+
+  h3 {
+    font-weight: normal;
+    font-size: 1.8rem;
+    position: relative;
+    line-height: 3.5rem;
+    padding: 3rem 0;
+
+    &::before {
+      content: "";
+      width: 15rem;
+      height: 0.3rem;
+      background-color: $white;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  span.purple {
+    color: $purple;
+  }
+}

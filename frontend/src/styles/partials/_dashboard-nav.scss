@@ -1,0 +1,28 @@
+.dashboard-nav {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+  height: 100vh;
+  width: 10rem;
+  background-color: #1a1a1a;
+  border-right: 1px solid transparentize($purple, 0.8);
+
+  ul {
+    font-size: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    a {
+      color: $white;
+      opacity: 1;
+      transition: 0.2s ease-in-out;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
