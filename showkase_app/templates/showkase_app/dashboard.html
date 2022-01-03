@@ -11,17 +11,18 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <title>Showkase | Landing Page</title>
+    <title>Showkase | Dashboard</title>
     {% stylesheet_pack 'app' %}
   </head>
   <body>
-    {% include 'showkase_app/partials/_nav.html' %}
-    <!-- <h2>showkase</h2> -->
-    <div class="container">
-      <!-- <h2>showkase</h2> -->
-      {% include 'showkase_app/partials/_hero.html' %}
+    <div class="dashboard-container">
+      {% include 'showkase_app/partials/_dashboard-nav.html' %}
+      <!-- <h2></h2> -->
+      <div class="dashboard">
+        {% include 'showkase_app/partials/_dashboard.html' %}
+      </div>
     </div>
-    <!-- <h2>showkase</h2> -->
+    <!-- <h2></h2> -->
     {% javascript_pack 'app' 'app2' attrs='charset="UTF-8"' %}
   </body>
 </html>
