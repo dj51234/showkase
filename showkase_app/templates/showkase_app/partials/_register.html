@@ -1,15 +1,6 @@
-<form action="">
-  <input
-    type="email"
-    name="register-email"
-    id="register-email"
-    placeholder="Email Address"
-  />
-  <input
-    type="password"
-    name="register-password"
-    id="register-password"
-    placeholder="Password"
-  />
+<form action="{% url 'showkase:render_register' %}" method="post">
+  {% csrf_token %}
+  <!-- <h1></h1> -->
+  {{ form }}
   <button class="btn btn-primary-white">Register</button>
 </form>
