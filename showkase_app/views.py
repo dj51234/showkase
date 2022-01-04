@@ -50,5 +50,6 @@ def render_login(request):
 def render_dashboard(request):
     return render(request, 'showkase_app/dashboard.html')
 
+@login_required
 def render_profile(request):
     return render(request, 'showkase_app/profile.html')
