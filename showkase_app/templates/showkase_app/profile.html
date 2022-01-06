@@ -18,7 +18,21 @@
     <div class="dashboard-container">
       {% include 'showkase_app/partials/_dashboard-nav.html' %}
       <!-- <h2></h2> -->
-      <h1 style="color: white">PROFILE</h1>
+      <div class="dashboard">
+        <h1 style="color: white">
+          {% if user.profile.first_name %}
+            Welcome, {{user.profile.first_name}} {{user.profile.last_name}}
+          {% else %}
+            Welcome, {{user}}
+          {% endif %}
+        </h1>
+        <h2 style="color: white">Edit Profile</h2>
+        <form action="{% url 'showkase:render_profile' %}" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{form}}
+          <button type="submit">Change</button>
+        </form>
+      </div>
     </div>
     <!-- <h2></h2> -->
     {% javascript_pack 'app' 'app2' attrs='charset="UTF-8"' %}

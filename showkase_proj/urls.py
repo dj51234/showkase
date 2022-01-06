@@ -17,10 +17,16 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
 from showkase_app import urls as showkase_app_urls
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('', TemplateView.as_view(template_name="showkase_app/index.html")),
     path('app/',include(showkase_app_urls)),
     path('admin/', admin.site.urls),
     
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

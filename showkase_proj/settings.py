@@ -123,6 +123,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # Directory where uploaded media is saved.
+MEDIA_URL = '/media/' # Public URL at the browser
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "frontend/build"),
 ]

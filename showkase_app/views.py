@@ -1,10 +1,14 @@
 from django.shortcuts import render
-from .forms import RegisterForm, LoginForm
+from .forms import EditProfile, RegisterForm, LoginForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User # Import the built-in User model, which is a sender
+from django.dispatch import receiver # Import the receiver
+from django.db.models.signals import post_save #Import a post_save signal when a user is created
+from .models import Profile
 
 # Create your views here.
 
@@ -44,7 +48,7 @@ def render_login(request):
                 login(request,user)
                 return HttpResponseRedirect(reverse('showkase:render_dashboard'))
             else: 
-                return render(request, 'showkase_app/login.html')
+                return render(request, 'showkase_app/login.html',{'form':form})
             
 @login_required
 def render_dashboard(request):
@@ -52,4 +56,18 @@ def render_dashboard(request):
 
 @login_required
 def render_profile(request):
-    return render(request, 'showkase_app/profile.html')
+    profile = Profile.objects.all().get(user=request.user)
+    
+    if request.method == 'POST':
+        form = EditProfile(request.POST, request.FILES, instance=request.user.profile)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('showkase:render_profile'))
+    else:
+        form = EditProfile(instance=request.user.profile)
+        return render(request, 'showkase_app/profile.html',{'form':form})
+
+@login_required
+def user_logout(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('showkase:render_login'))

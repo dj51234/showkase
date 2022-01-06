@@ -9,4 +9,5 @@ urlpatterns = [
     path('register/',views.render_register,name="render_register"),
     path('dashboard/',views.render_dashboard,name="render_dashboard"),
     path('profile/',views.render_profile,name="render_profile"),
+    path('logout/',views.user_logout,name="user_logout"),
 ]
