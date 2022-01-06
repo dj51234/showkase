@@ -39,17 +39,18 @@ Webpack will compile javascript and scss using custom template tags in realtime
   - ~~CSS vars, globals, css components(ie. buttons, headings, forms)~~
 - Pages
   - ~~Nav component~~
-  - Home page
-    - Welcome
-    - What the app does
-    - Login
-    - Register
+  - ~~Home page~~
+    - ~~Welcome~~
+    - ~~What the app does~~
+    - ~~Login~~
+    - ~~Register~~
   - Profile
     - Name
     - Profile picture
     - Bio
     - Location
-    - Search form
+    - ~~Search form~~
+    - Edit Prrofile info
     - Ability to create/edit and remove lists
     - When search results populate icons pertaining to the show/movie will display
       - '+' or '-' icon for adding to their favorites list
