@@ -1,4 +1,13 @@
+<h1 class="welcome-msg">
+  {% if user.profile.first_name %}
+    Welcome, {{user.profile.first_name}} {{user.profile.last_name}}
+  {% else %}
+    Welcome, {{user}}
+  {% endif %}
+</h1>
+
 <h2>Search</h2>
+
 <form action="">
   <input
     type="text"

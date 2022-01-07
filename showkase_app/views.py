@@ -5,9 +5,6 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User # Import the built-in User model, which is a sender
-from django.dispatch import receiver # Import the receiver
-from django.db.models.signals import post_save #Import a post_save signal when a user is created
 from .models import Profile
 
 # Create your views here.
@@ -56,7 +53,6 @@ def render_dashboard(request):
 
 @login_required
 def render_profile(request):
-    profile = Profile.objects.all().get(user=request.user)
     
     if request.method == 'POST':
         form = EditProfile(request.POST, request.FILES, instance=request.user.profile)

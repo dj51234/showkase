@@ -19,18 +19,18 @@
       {% include 'showkase_app/partials/_dashboard-nav.html' %}
       <!-- <h2></h2> -->
       <div class="dashboard">
-        <h1 style="color: white">
+        <h1 class="welcome-msg">
           {% if user.profile.first_name %}
             Welcome, {{user.profile.first_name}} {{user.profile.last_name}}
           {% else %}
             Welcome, {{user}}
           {% endif %}
         </h1>
-        <h2 style="color: white">Edit Profile</h2>
+        <h2>Edit Profile</h2>
         <form action="{% url 'showkase:render_profile' %}" method="post" enctype="multipart/form-data">
           {% csrf_token %}
           {{form}}
-          <button type="submit">Change</button>
+          <button type="submit" class="btn btn-primary-white">Change</button>
         </form>
       </div>
     </div>
