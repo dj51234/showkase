@@ -34,12 +34,6 @@ body::before {
   .btn {
     margin-right: 2rem;
 
-    @include phone {
-      margin-top: 2rem;
-      margin-right: 0;
-      text-align: center;
-    }
-
     @include small-phone {
       text-align: center;
     }
@@ -47,13 +41,14 @@ body::before {
 
   h1 {
     padding: 3rem 0;
+    font-weight: 700;
   }
 
   h3 {
-    font-weight: normal;
+    font-weight: 300;
     font-size: 1.8rem;
     position: relative;
-    line-height: 3.5rem;
+    line-height: 2.5rem;
     padding: 3rem 0;
 
     &::before {
