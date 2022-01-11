@@ -28,7 +28,7 @@ function createResults(source_url) {
   results.insertAdjacentElement("afterbegin", result);
 }
 
-const key = "W3hNwktThtfgbyxrXDHn3oR1F6ueAMZXFYPg6Nt1";
+const key;
 const value = "game of thrones";
 const titleUrl = `https://api.watchmode.com/v1/search/?apiKey=${key}&search_field=name&search_value=${value}`;
 
