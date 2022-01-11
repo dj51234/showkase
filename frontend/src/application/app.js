@@ -17,11 +17,54 @@ window.document.addEventListener("DOMContentLoaded", function () {
   // div.textContent = "this is name";
 });
 
-let div = document.createElement("div");
-div.classList.add("result");
-let p = document.createElement("p");
-p.classList.add("result-name");
-p.classList.add("text-sm");
-p.textContent = "The name";
-div.appendChild(p);
-results.insertAdjacentElement("afterbegin", div);
+function createResults(source_url) {
+  let result = document.createElement("div");
+  let title = document.createElement("p");
+  result.classList.add("result");
+  title.classList.add("result-name");
+  title.classList.add("text-sm");
+  title.textContent = source_url;
+  result.appendChild(title);
+  results.insertAdjacentElement("afterbegin", result);
+}
+
+const key = "W3hNwktThtfgbyxrXDHn3oR1F6ueAMZXFYPg6Nt1";
+const value = "game of thrones";
+const titleUrl = `https://api.watchmode.com/v1/search/?apiKey=${key}&search_field=name&search_value=${value}`;
+
+axios({
+  method: "get",
+  url: titleUrl,
+}).then((res) => {
+  const titleId = res.data.title_results[0].id; // Gets id of searched title
+  axios({
+    method: "get",
+    url: `https://api.watchmode.com/v1/title/${titleId}/details/?apiKey=${key}`,
+  }).then((res) => {
+    const allDetails = res.data; // Most details about search result
+    axios({
+      method: "get",
+      url: `https://api.watchmode.com/v1/title/${titleId}/sources/?apiKey=${key}&regions=US`,
+    }).then((res) => {
+      const sourceIds = []; // ids of sources linked to search result
+      res.data.forEach((srcId) => {
+        sourceIds.push({ id: srcId.source_id, url: srcId.web_url });
+      });
+      axios({
+        method: "get",
+        url: `https://api.watchmode.com/v1/sources/?apiKey=${key}`,
+      }).then((res) => {
+        const sourcesArray = []; // array of objects containing src logo, name and type
+        sourceIds.forEach((id) => {
+          const logoData = res.data;
+          logoData.find((result) => {
+            if (result.id === id.id) {
+              sourcesArray.push({ srcInfo: result, webUrl: id.url });
+            }
+          });
+          console.log(sourcesArray);
+        });
+      });
+    });
+  });
+});
