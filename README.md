@@ -45,14 +45,14 @@ Webpack will compile javascript and scss using custom template tags in realtime
     - ~~Login~~
     - ~~Register~~
   - Profile
-    - Name
-    - Profile picture
+    - ~~Name~~
+    - ~~Profile picture~~
     - Bio
     - Location
     - ~~Search form~~
     - ~~Edit Prrofile info~~
     - Ability to create/edit and remove lists
-    - When search results populate icons pertaining to the show/movie will display
+    - (**May need to rework this step**) When search results populate icons pertaining to the show/movie will display
       - '+' or '-' icon for adding to their favorites list
       - Clicking on a search result will go to an individual page for that show/movie
   - Individual show page
