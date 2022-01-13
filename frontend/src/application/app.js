@@ -42,28 +42,45 @@ axios({
     url: `https://api.watchmode.com/v1/title/${titleId}/details/?apiKey=${key}`,
   }).then((res) => {
     const allDetails = res.data; // Most details about search result
-    axios({
-      method: "get",
-      url: `https://api.watchmode.com/v1/title/${titleId}/sources/?apiKey=${key}&regions=US`,
-    }).then((res) => {
+    axios(
+      {
+        method: "get",
+        url: `https://api.watchmode.com/v1/title/${titleId}/sources/?apiKey=${key}&regions=US`,
+      },
+      allDetails
+    ).then((res) => {
       const sourceIds = []; // ids of sources linked to search result
       res.data.forEach((srcId) => {
         sourceIds.push({ id: srcId.source_id, url: srcId.web_url });
       });
-      axios({
-        method: "get",
-        url: `https://api.watchmode.com/v1/sources/?apiKey=${key}`,
-      }).then((res) => {
-        const sourcesArray = []; // array of objects containing src logo, name and type
+      axios(
+        {
+          method: "get",
+          url: `https://api.watchmode.com/v1/sources/?apiKey=${key}`,
+        },
+        allDetails
+      ).then((res) => {
+        const finalDetails = []; // array of objects containing src logo, name and type
         sourceIds.forEach((id) => {
           const logoData = res.data;
+          const { title, plot_overview, critic_score, user_rating } =
+            allDetails;
+
           logoData.find((result) => {
             if (result.id === id.id) {
-              sourcesArray.push({ srcInfo: result, webUrl: id.url });
+              finalDetails.push({
+                logo: result.logo_100px,
+                src: result.name,
+                webUrl: id.url,
+                title,
+                plot_overview,
+                critic_score,
+                user_rating,
+              });
             }
           });
-          console.log(sourcesArray);
         });
+        console.log(finalDetails);
       });
     });
   });
