@@ -50,12 +50,13 @@ Webpack will compile javascript and scss using custom template tags in realtime
     - Bio
     - Location
     - ~~Search form~~
-    - Edit Prrofile info
+    - ~~Edit Prrofile info~~
     - Ability to create/edit and remove lists
     - When search results populate icons pertaining to the show/movie will display
       - '+' or '-' icon for adding to their favorites list
       - Clicking on a search result will go to an individual page for that show/movie
   - Individual show page
+    - ~~Output final object for search results with logs, title, src links, etc.~~
     - Platforms to buy or watch on (Amazon, Crunchyroll, HBO Max)
     - Small description of movie/show, year released, major actors
       - Episodes tab for shows
