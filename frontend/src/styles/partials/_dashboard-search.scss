@@ -2,3 +2,16 @@
   max-width: 100%;
   width: 100%;
 }
+
+.searching {
+  margin-top: 1rem;
+  font-weight: 400;
+
+  span {
+    color: $purple;
+  }
+}
+
+#start-search {
+  width: min-content;
+}

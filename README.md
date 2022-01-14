@@ -32,7 +32,7 @@ Webpack will compile javascript and scss using custom template tags in realtime
 - Base template configurations
 
 - Work on design elements
-  - ~~Colors~~, images, page flow, UI/UX
+  - ~~Colors~~, ~~images~~, ~~page flow~~, UI/UX
   - ~~Logo~~
   - ~~Font family~~
   - ~~Font sizes~~
@@ -51,8 +51,8 @@ Webpack will compile javascript and scss using custom template tags in realtime
     - Location
     - ~~Search form~~
     - ~~Edit Prrofile info~~
-    - Ability to create/edit and remove lists
-    - (**May need to rework this step**) When search results populate icons pertaining to the show/movie will display
+    - **Ability to create/edit and remove lists**
+    - ~~(**May need to rework this step**) When search results populate icons pertaining to the show/movie will display~~
       - '+' or '-' icon for adding to their favorites list
       - Clicking on a search result will go to an individual page for that show/movie
   - Individual show page

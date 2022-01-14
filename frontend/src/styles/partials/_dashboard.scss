@@ -3,10 +3,12 @@
   background-color: #1a1a1a;
   gap: 5rem;
   color: $white;
+  min-height: 100vh;
 
   .dashboard {
     padding: 10rem;
     flex: 1;
+    margin-left: 10rem;
 
     .welcome-msg {
       margin-bottom: 3rem;

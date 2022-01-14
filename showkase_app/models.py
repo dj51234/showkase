@@ -9,7 +9,7 @@ class Profile(models.Model):
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
     password = forms.CharField(widget=forms.PasswordInput)
-    avatar = models.ImageField(null=True,blank=True,)
+    avatar = models.ImageField(null=True,blank=True)
 
     def __str__(self):
         return f"{str(self.user)},{self.first_name},{self.last_name}"

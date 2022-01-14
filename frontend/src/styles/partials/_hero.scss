@@ -2,24 +2,24 @@ body {
   min-height: 100vh;
 }
 
-body::before {
-  content: "";
-  background-image: url("../../vendors/images/stream-bg.jpg");
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-size: cover;
-  background-position: bottom center;
-  opacity: 0.035;
-  z-index: -1;
-}
-
 .hero-container {
   color: $white;
   max-width: 110rem;
   margin: 2.5rem;
+
+  &::before {
+    content: "";
+    background-image: url("../../vendors/images/stream-bg.jpg");
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: bottom center;
+    opacity: 0.035;
+    z-index: -1;
+  }
 
   .hero-content {
     @include phone {
@@ -34,8 +34,11 @@ body::before {
   .btn {
     margin-right: 2rem;
 
-    @include small-phone {
+    @include phone {
       text-align: center;
+      &:first-of-type {
+        margin-bottom: 1.5rem;
+      }
     }
   }
 
