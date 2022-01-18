@@ -10,17 +10,16 @@
     <li>
       <a href="{% url 'showkase:render_profile' %}" title="edit profile">
         {% if user.profile.avatar %}
-          <img src="{{user.profile.avatar.url}}" alt="" />
+        <img src="{{user.profile.avatar.url}}" alt="" />
         {% else %}
-          <i class="fas fa-question-circle"></i>
+        <i class="fas fa-question-circle"></i>
         {% endif %}
       </a>
     </li>
     <li>
-      <a href="{% url 'showkase:render_dashboard' %}" title="dashboard"><i class="fas fa-tachometer"></i></a>
-    </li>
-    <li>
-      <a href="" title="My Lists"><i class="fas fa-list-ul"></i></a>
+      <a href="{% url 'showkase:render_dashboard' %}" title="dashboard"
+        ><i class="fas fa-tachometer"></i
+      ></a>
     </li>
     <li>
       <a href="{% url 'showkase:user_logout' %}" title="Sign Out"

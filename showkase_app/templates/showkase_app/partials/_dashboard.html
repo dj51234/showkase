@@ -3,17 +3,31 @@
   {{user.profile.last_name}} {% else %} Welcome, {{user}} {% endif %}
 </h1>
 
-<h2>Search</h2>
+<div class="search-flex-container">
+  <div>
+    <h2>Search</h2>
 
-<form action="">
-  <input
-    type="text"
-    name="search"
-    id="search"
-    class="search-input"
-    placeholder="Search for movies and shows..."
-  />
-  <a herf="" id="start-search" class="btn btn-primary-white">Search</a>
-</form>
+    <form action="">
+      <input
+        type="text"
+        name="search"
+        id="search"
+        class="search-input"
+        placeholder="Search for movies and shows..."
+      />
+      <a herf="" id="start-search" class="btn btn-primary-white">Search</a>
+    </form>
+  </div>
+  <div class="results-info">
+    <h3 class="results-info__title"></h3>
+    <p class="results-info__overview"></p>
+    <div class="results-info__scores">
+      <div>
+        <h2 class="results-info__scores--critic"></h2>
+      </div>
+      <h2 class="results-info__scores--user"></h2>
+    </div>
+  </div>
+</div>
 <h3 class="searching"></h3>
 <div class="results"></div>

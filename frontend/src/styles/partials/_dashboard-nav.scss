@@ -10,11 +10,24 @@
   background-color: #1a1a1a;
   border-right: 1px solid transparentize($purple, 0.8);
 
+  @include tablet {
+    position: relative;
+    height: auto;
+    width: 100%;
+    flex-direction: row;
+    padding: 2rem;
+  }
+
   ul {
     font-size: 1.8rem;
     display: flex;
     flex-direction: column;
     gap: 3rem;
+
+    @include tablet {
+      flex-direction: row;
+      align-items: center;
+    }
 
     a {
       color: $white;

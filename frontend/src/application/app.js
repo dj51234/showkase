@@ -12,6 +12,10 @@ const results = document.querySelector(".results");
 const searchValue = document.querySelector("#search");
 const startSearch = document.querySelector("#start-search");
 const searching = document.querySelector(".searching");
+const detailsTitle = document.querySelector(".results-info__title");
+const detailsOverview = document.querySelector(".results-info__overview");
+const criticScore = document.querySelector(".results-info__scores--critic");
+const userScore = document.querySelector(".results-info__scores--user");
 
 window.document.addEventListener("DOMContentLoaded", function () {
   window.console.log("dom ready 1");
@@ -21,6 +25,17 @@ window.document.addEventListener("DOMContentLoaded", function () {
 });
 
 function createResults(details) {
+  detailsTitle.textContent = details[0].title;
+  detailsOverview.textContent = details[0].plot_overview;
+
+  criticScore.innerHTML = details[0].critic_score
+    ? `<span>Critic Score:</span> ${details[0].critic_score}`
+    : `<span>Critic Score:</span> N/A`;
+
+  userScore.innerHTML = details[0].user_rating
+    ? `<span>User Score:</span> ${details[0].user_rating}`
+    : `<span>Critic Score:</span> N/A`;
+
   if (details) {
     details = details
       .map((result) => {
@@ -51,7 +66,7 @@ startSearch.addEventListener("click", (e) => {
     url: titleUrl,
   }).then((res) => {
     const titleId = res.data.title_results[0].id; // Gets id of searched title
-    console.log(titleId);
+
     axios({
       method: "get",
       url: `https://api.watchmode.com/v1/title/${titleId}/details/?apiKey=${key}`,
