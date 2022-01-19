@@ -65,7 +65,7 @@ function createResults(details) {
         return `
       <div class='result'>
       <p class='text-sm result-name'>${result.src}</p>
-        <a href="${result.webUrl}"><img width="50px" src='${result.logo}'/></a>
+        <a target="_blank" href="${result.webUrl}"><img width="50px" src='${result.logo}'/></a>
       </div>
     `;
       })
@@ -80,7 +80,7 @@ function createResults(details) {
 function getResults(e) {
   results.textContent = "No results found";
   e.preventDefault();
-  const key = "";
+  const key = "ke3GLW2X1ap3hK4QOB3Lu2kIm32DZBBG2MMlznaF";
   const value = searchValue.value;
   const titleUrl = `https://api.watchmode.com/v1/search/?apiKey=${key}&search_field=name&search_value=${value}`;
 
