@@ -12,6 +12,7 @@ const results = document.querySelector(".results");
 const searchValue = document.querySelector("#search");
 const startSearch = document.querySelector("#start-search");
 const searching = document.querySelector(".searching");
+const detailsDiv = document.querySelector(".results-info");
 const detailsTitle = document.querySelector(".results-info__title");
 const detailsOverview = document.querySelector(".results-info__overview");
 const criticScore = document.querySelector(".results-info__scores--critic");
@@ -19,14 +20,34 @@ const userScore = document.querySelector(".results-info__scores--user");
 
 window.document.addEventListener("DOMContentLoaded", function () {
   window.console.log("dom ready 1");
-  // const div = document.createElement("div");
-  // div.classList.add("result");
-  // div.textContent = "this is name";
 });
 
 function createResults(details) {
-  detailsTitle.textContent = details[0].title;
+  detailsTitle.innerHTML = `${details[0].title} <span>(${details[0].year})</span>`;
   detailsOverview.textContent = details[0].plot_overview;
+
+  // remove any previous classes
+
+  criticScore.classList.remove(...criticScore.classList);
+  userScore.classList.remove(...userScore.classList);
+
+  // add color class based on scores
+
+  details[0].critic_score >= 75
+    ? criticScore.classList.add("great")
+    : details[0].critic_score <= 65
+    ? criticScore.classList.add("bad")
+    : details[0].critic_score >= 65 && details[0].critic_score <= 75
+    ? criticScore.classList.add("maybe")
+    : criticScore.classList.remove(...criticScore.classList);
+
+  details[0].user_rating >= 7.5
+    ? userScore.classList.add("great")
+    : details[0].user_rating <= 5.5
+    ? userScore.classList.add("bad")
+    : details[0].user_rating > 5.5 && details[0].user_rating < 7.5
+    ? userScore.classList.add("maybe")
+    : userScore.classList.remove(...userScore.classList);
 
   criticScore.innerHTML = details[0].critic_score
     ? `<span>Critic Score:</span> ${details[0].critic_score}`
@@ -35,6 +56,8 @@ function createResults(details) {
   userScore.innerHTML = details[0].user_rating
     ? `<span>User Score:</span> ${details[0].user_rating}`
     : `<span>Critic Score:</span> N/A`;
+
+  // if title found, map sources in results div
 
   if (details) {
     details = details
@@ -49,13 +72,15 @@ function createResults(details) {
       .forEach(
         (result) => results && results.insertAdjacentHTML("beforeend", result)
       );
+  } else {
+    detailsDiv.innerHTML = "";
   }
 }
 
-startSearch.addEventListener("click", (e) => {
+function getResults(e) {
   results.textContent = "No results found";
   e.preventDefault();
-  const key = "W3hNwktThtfgbyxrXDHn3oR1F6ueAMZXFYPg6Nt1";
+  const key = "";
   const value = searchValue.value;
   const titleUrl = `https://api.watchmode.com/v1/search/?apiKey=${key}&search_field=name&search_value=${value}`;
 
@@ -71,7 +96,8 @@ startSearch.addEventListener("click", (e) => {
       method: "get",
       url: `https://api.watchmode.com/v1/title/${titleId}/details/?apiKey=${key}`,
     }).then((res) => {
-      const allDetails = res.data; // Most details about search result
+      const allDetails = res.data; // Get details about search result from title id in previous fetch
+
       axios(
         {
           method: "get",
@@ -90,10 +116,10 @@ startSearch.addEventListener("click", (e) => {
           },
           allDetails
         ).then((res) => {
-          const finalDetails = []; // array of objects containing src logo, name and type
+          const finalDetails = []; // array of objects containing src logo, name and type, overview, scores, sources
           sourceIds.forEach((id) => {
             const logoData = res.data;
-            const { title, plot_overview, critic_score, user_rating } =
+            const { title, plot_overview, critic_score, user_rating, year } =
               allDetails;
 
             logoData.find((result) => {
@@ -106,6 +132,7 @@ startSearch.addEventListener("click", (e) => {
                   plot_overview,
                   critic_score,
                   user_rating,
+                  year,
                 });
               }
             });
@@ -118,16 +145,23 @@ startSearch.addEventListener("click", (e) => {
             uniqueValues.add(item.src);
             return !isAnItem;
           });
-          results.textContent = null;
-
+          newFinalDetails && (results.textContent = null);
           createResults(newFinalDetails);
         });
       });
     });
   });
+}
+
+startSearch.addEventListener("click", (e) => {
+  getResults(e);
 });
 
-// final object result per result
+searchValue.addEventListener("keypress", (e) => {
+  e.key === "Enter" && getResults(e);
+});
+
+// final object per result:
 
 // {
 //   "logo": "https://cdn.watchmode.com/provider_logos/googlePlay_100px.png",
@@ -136,5 +170,6 @@ startSearch.addEventListener("click", (e) => {
 //   "title": "Game of Thrones",
 //   "plot_overview": "Seven noble families fight for control of the mythical land of Westeros. Friction between the houses leads to full-scale war. All while a very ancient evil awakens in the farthest north. Amidst the war, a neglected military order of misfits, the Night's Watch, is all that stands between the realms of men and icy horrors beyond.",
 //   "critic_score": 85,
-//   "user_rating": 8.7
+//   "user_rating": 8.7,
+//   "year": 2011
 // }

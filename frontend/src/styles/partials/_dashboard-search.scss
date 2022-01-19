@@ -22,6 +22,10 @@
   flex-direction: column;
   margin-bottom: 2rem;
 
+  .dashboard-search-headline {
+    font-size: 4rem;
+  }
+
   @include lg-tablet {
   }
 
@@ -38,17 +42,37 @@
     &__overview {
       font-size: 1.5rem;
       margin-block: 2rem;
+      line-height: 2.5orem;
     }
     &__scores {
       display: flex;
       gap: 2rem;
-      h3 {
+
+      h2 {
         opacity: 0.8;
+
+        &.great {
+          color: green;
+        }
+
+        &.maybe {
+          color: yellow;
+        }
+
+        &.bad {
+          color: red;
+        }
+
+        &.na {
+          color: #fff;
+        }
       }
+
       span {
         font-size: 1.7rem;
         font-weight: 400;
         opacity: 1;
+        color: #fff;
       }
     }
   }
