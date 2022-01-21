@@ -47,7 +47,7 @@ Webpack will compile javascript and scss using custom template tags in realtime
 
 - ~~File structure~~
 - ~~Implement webpack in django for scss~~
-- Base template configurations
+- ~~Base template configurations~~
 
 - Work on design elements
   - ~~Colors~~, ~~images~~, ~~page flow~~, UI/UX
@@ -69,9 +69,9 @@ Webpack will compile javascript and scss using custom template tags in realtime
     - ~~Edit Prrofile info~~
     - **Ability to create/edit and remove lists**
     - ~~(**May need to rework this step**) When search results populate icons pertaining to the show/movie will display~~
-    - Platforms to buy or watch on (Amazon, Crunchyroll, HBO Max)
+    - ~~Platforms to buy or watch on (Amazon, Crunchyroll, HBO Max)~~
     - ~~Output final object for search results with logs, title, src links, etc.~~
-    - Small description of movie/show, year released, title
+    - ~~Small description of movie/show, year released, title~~
     - ~~User rating and critic scores~~
 
 ## Future plans
