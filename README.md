@@ -12,7 +12,7 @@
 
 ![Preview-2](./preview/preview-2.gif)
 
-## Search Functionality Contd. and Mobile
+## Mobile View
 
 ![Preview-3](./preview/preview-3.gif)
 
